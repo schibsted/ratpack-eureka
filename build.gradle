@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        ratpackVersion = '1.2.0-rc-2'
+    }
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:$ratpackVersion"
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'io.ratpack.ratpack-java'
+
+sourceCompatibility = '1.8'
+group = 'com.github.schibsted'
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+
+    ext {
+        eurekaVersion = '1.4.0'
+    }
+
+    compile ratpack.dependency("guice")
+    compile "com.netflix.eureka:eureka-client:$eurekaVersion"
+}
+
+task capsule(type: Jar, dependsOn: classes) {
+    archiveName = "ratpack-eureka.jar"
+
+    from jar
+    from { configurations.runtime }
+}
