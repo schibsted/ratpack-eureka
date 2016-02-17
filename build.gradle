@@ -17,6 +17,7 @@ apply plugin: 'io.ratpack.ratpack-java'
 
 sourceCompatibility = '1.8'
 group = 'com.github.schibsted'
+version = '1.0.0'
 
 repositories {
     jcenter()
