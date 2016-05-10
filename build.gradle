@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        ratpackVersion = '1.2.0-rc-2'
+        ratpackVersion = '1.2.0'
     }
 
     repositories {
